@@ -1,34 +1,34 @@
-import React, {Component} from 'react';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {getUser, logout} from '../actions/userActions';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUser, logout } from '../actions/userActions';
 
 class Header extends Component {
     render() {
         return (
-            <div class="container-fluid">
-            <nav class="navbar navbar-expand-ls navbar-light bg-light">
-                <div className="container-fluid">                    
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                                data-target="#myNavbar" aria-controls="myNavbar" 
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+            <div className="container-fluid">
+                <nav className="navbar navbar-expand-ls navbar-light bg-light">
+                    <div className="container-fluid">
+                        <button href="#myNavbar" className="navbar-toggler" type="button" data-toggle="collapse"
+                            aria-controls="myNavbar"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
 
                         <Link className="navbar-brand" to="/">Diariy2018</Link>
-                    </div>                                    
-            </nav>            
-            <div className="collapse" id="myNavbar">
-                <ul className="nav navbar-nav navbar-right">
-                {
-                    this.props.user === null ? (
-                        <li><Link to="/Login">Login</Link></li>
-                    ) : (
-                        <li><Link to="/logout">Logout</Link></li>
-                    )
-                }                            
-                </ul>
-            </div>
+                    </div>
+                    <div className="collapse" id="myNavbar">
+                        <ul className="nav navbar-nav navbar-right">
+                            {
+                                this.props.user === null ? (
+                                    <li><Link to="/Login">Login</Link></li>
+                                ) : (
+                                        <li><Link to="/logout">Logout</Link></li>
+                                    )
+                            }
+                        </ul>
+                    </div>
+                </nav>
             </div>
         );
     }
@@ -40,4 +40,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, {getUser, logout})(Header);
+export default connect(mapStateToProps, { getUser, logout })(Header);
