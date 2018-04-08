@@ -23,7 +23,7 @@ class Header extends Component {
                                 this.props.user === null ? (
                                     <li><Link to="/Login">Login</Link></li>
                                 ) : (
-                                        <li><Link to="/logout">Logout</Link></li>
+                                        <li><Link to="/logout" onClick={() => this.props.logout()}>Logout</Link></li>
                                     )
                             }
                         </ul>
